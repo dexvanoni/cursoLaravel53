@@ -11,6 +11,18 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('minharota.me', function () {
+    return "Hello World";
+});
+
+  Route::get('minharota/rota1', function () {
+      return "Hello World - Rota 1";
+  });
+    Route::get('client/{id}', function ($id) {
+        return "Client $id";
+    });
