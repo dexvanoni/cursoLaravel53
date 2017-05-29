@@ -4,6 +4,29 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('minharota.me', function () {
+    return view('helloworld');
+});
+
+Route::get('minharota.me/rota1', function () {
+    return view('helloworld1');
+});
+
+Route::get('client', function()
+{
+  return view('client');
+});
+Route::post('client', function(Request $request)
+{
+  return $request->get('value');
+})->name('client.store');
+
+Route::get('client/{id}/{name?}', function ($id, $name = 'Denis Vanoni'){
+    return view('client-name', [
+      'id' => $id,
+      'name' => $name
+    ]);
+});
 
 /*Route::get('minharota.me', function () {
     return "Hello World";
