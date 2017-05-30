@@ -4,10 +4,20 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('minharota.me', function () {
-    return view('helloworld');
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
+  Route::get('client', 'ClientsController@create');
+  Route::post('client','ClientsController@store')->name('client.store');
 });
 
+Route::group(['prefix' => '', 'as' => 'site.'], function(){
+  Route::get('client', 'SiteClientsController@create');
+  Route::post('client','SiteClientsController@store')->name('client.store');
+});
+
+
+
+/*
 Route::get('minharota.me/rota1', function () {
     return view('helloworld1');
 });
@@ -27,11 +37,11 @@ Route::get('client/{id}/{name?}', function ($id, $name = 'Denis Vanoni'){
       'name' => $name
     ]);
 });
-
-Route::get('if-for', function()
+*/
+/*Route::get('if-for', function()
 {
   return view('if-for');
-});
+});*/
 
 /*Route::get('minharota.me', function () {
     return "Hello World";
