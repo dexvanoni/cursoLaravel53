@@ -28,6 +28,11 @@ Route::get('client/{id}/{name?}', function ($id, $name = 'Denis Vanoni'){
     ]);
 });
 
+Route::get('if-for', function()
+{
+  return view('if-for');
+});
+
 /*Route::get('minharota.me', function () {
     return "Hello World";
 });
